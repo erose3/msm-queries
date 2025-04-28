@@ -2,14 +2,14 @@ Rails.application.routes.draw do
   
   get("/", { :controller => "misc", :action => "homepage" })
 
-  get("/directors", { :controller => "misc", :action => "all_directors"})
+  get("/directors", { :controller => "directors", :action => "all"})
 
-  get("/directors/youngest", { :controller => "misc", :action => "youngest_director"})
+  get("/directors/youngest", { :controller => "directors", :action => "youngest"})
 
-  get("/directors/eldest", { :controller => "misc", :action => "eldest_director"})
+  get("/directors/eldest", { :controller => "directors", :action => "eldest"})
 
-  get("/movies", { :controller => "misc", :action => "movies"})
-  
-  get("/actors", { :controller => "misc", :action => "actors"})
+  get("/movies", { :controller => "movies", :action => "movies_list"})
+
+  get("/actors", { :controller => "actors", :action => "actors_list"})
 
 end
