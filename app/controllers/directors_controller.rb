@@ -12,4 +12,8 @@ class DirectorsController < ApplicationController
     render({ :template => "misc_templates/eldest_director"})
   end
 
+  def about
+    render({ :template => "misc_templates/director_about"})
+  end
+
 end
