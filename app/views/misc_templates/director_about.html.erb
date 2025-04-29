@@ -3,6 +3,7 @@
 <a href="/directors">Go back</a>
 <hr>
 
+<dl>
 <dt>Name</dt>
   <dd><%= @the_director.name%></dd>
 <dt>Dob</dt>
@@ -15,10 +16,9 @@
   <dd><%= @the_director.created_at%></dd>
 <dt>Updated at</dt>
   <dd><%= @the_director.updated_at%></dd>
+</dl>
 
-<hr>
-
-<h2>Filmography</h2>
+<% matching_movies = Movie.where({ :director_id => @the_director.id }) %>
 
 <table border="1">
   <tr>
@@ -29,3 +29,16 @@
     <th>Director</th>
     <th></th>
   </tr>
+
+<% matching_movies.each do |a_movie| %>
+
+  <tr>
+    <td><%= a_movie.id %></td>
+    <td><img src="<%= a_movie.image %>" width="100"></td>
+    <td><%= a_movie.title %></td>
+    <td><%= a_movie.year %></td>
+    <td><%= a_movie.director_id %></td>
+    <td>Show details</td>
+  </tr>
+  
+  <% end %>
