@@ -4,14 +4,6 @@ class DirectorsController < ApplicationController
     render({ :template => "misc_templates/directors"})
   end
 
-  def youngest
-    render({ :template => "misc_templates/youngest_director"})
-  end
-
-  def eldest
-    render({ :template => "misc_templates/eldest_director"})
-  end
-
   def about
     the_id = params.fetch("the_id")
 
@@ -19,6 +11,14 @@ class DirectorsController < ApplicationController
     @the_director = matching_records.at(0)
 
     render({ :template => "misc_templates/director_about"})
+  end
+
+  def youngest
+    render({ :template => "misc_templates/youngest_director"})
+  end
+
+  def eldest
+    render({ :template => "misc_templates/eldest_director"})
   end
 
 end

@@ -1,1 +1,8 @@
 <h1>Eldest Director</h1>
+
+<% directors_old2young = Director.where.not({ :dob => nil}).order({ :dob => :asc }) %>
+<% youngest_director = directors_old2young.at(0) %>
+<% birthday = youngest_director.dob.strftime("%B %e, %Y") %>
+
+
+<p> The eldest director in our dataset right now is <a href="/directors/<%= youngest_director.id %>"><%= youngest_director.name %></a>, born on <%= birthday %>.</p>
